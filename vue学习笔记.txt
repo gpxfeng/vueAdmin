@@ -1,0 +1,27 @@
+新建vue 项目 cmd  命令vue ui  创建 手动选择中勾选Router，Vuex
+开启router，commit 创建，添加插件vue-cli-plugin-element,
+src文件夹main.js引入element，html引入样式和组件
+
+created方法，实例化后立马调用，跟之前的init差不多
+methods方法，点击，实例化，提交等方法的共同位置
+
+后端接收json数据要加@requestbody
+
+axios请求跨域问题,在没有路由的时候
+get请求数据在后端respond.setheard, post暂时不知道
+
+
+$options: 用于当前 Vue 实例的初始化选项, 可以用此选项获得组件的name。
+
+$refs： 一个对象，持有注册过 ref 特性 的所有 DOM 元素和组件实例。
+
+$el: Vue 实例使用的根 DOM 元素。
+
+provide & inject ：这对选项需要一起使用，允许一个祖先组件向其所有子孙后代注入一个依赖,注意不是响应式的。
+注入的对象可以是个vue实例的eventBus。
+
+$on： 组件监听自定义事件。
+
+$emit： 组件触发自定义事件。
+
+
