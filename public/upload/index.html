@@ -17,19 +17,18 @@
         <el-form-item label="电影名称" prop="movieName">
             <el-input v-model="ruleForm.movieName"></el-input>
         </el-form-item>
-        <el-form-item label="电影分类" prop="region">
-            <el-select v-model="ruleForm.region" @change="selectRoleChange" placeholder="请选择">
-                <el-option v-for="item in selectType" :key="item.id" :lable="item.id" :value="item.name"></el-option>
+        <el-form-item label="电影分类" prop="classify">
+            <el-select v-model="ruleForm.classify" @change="selectRoleChange" placeholder="请选择">
+                <el-option v-for="item in selectClassify" :key="item.id" :lable="item.id" :value="item.name"></el-option>
             </el-select>
         </el-form-item>
-        <el-form-item label="电影类型" prop="type">
-            <el-checkbox-group v-model="ruleForm.type">
-                <el-checkbox label="动作" name="1"></el-checkbox>
-                <el-checkbox label="科幻" name="2"></el-checkbox>
-                <el-checkbox label="恐怖" name="3"></el-checkbox>
-                <el-checkbox label="爱情" name="4"></el-checkbox>
-            </el-checkbox-group>
-        </el-form-item>
+        <div id="typeDiv" :style="{display: active}">
+            <el-form-item label="电影类型" prop="type">
+                <el-select v-model="ruleForm.type" @change="selectRoleChange" placeholder="请选择">
+                    <el-option v-for="item in selectType" :key="item.id" :lable="item.index" :value="item.name"></el-option>
+                </el-select>
+            </el-form-item>
+        </div>
         <el-form-item label="电影链接" prop="imgUrl">
             <el-input type="textarea" v-model="ruleForm.imgUrl"></el-input>
         </el-form-item>
@@ -46,22 +45,24 @@
     el: '#app',
     data() {
       return {
-        selectType: '',
+        selectClassify: '',
         ruleForm: {
           movieName: '',
-          region: '',
+          classify: '',
           type: [],
           imgUrl: ''
         },
+        selectType:[],
+      active:'none',
         rules: {
           movieName: [
             { required: true, message: '请输入电影名称', trigger: 'blur' },
           ],
-          region: [
+          classify: [
             { required: true, message: '请选择电影类别', trigger: 'change' }
           ],
           type: [
-            { type: 'array', required: true, message: '请至少选择一个电影类型', trigger: 'change' }
+            { required: true, message: '请至少选择一个电影类型', trigger: 'change' }
           ],
           imgUrl: [
             { required: true, message: '请填写图片链接', trigger: 'blur' }
@@ -78,7 +79,9 @@
               {params:JSON.stringify(this.ruleForm)}).then(res => {
               console.log(res);
               alert("成功啦")
-              window.location.href="http://localhost:8081/VodWebCrawler_war_exploded/index.html";
+              this.$router.push({
+                path: '/'
+              });//window.location.href="http://localhost:8081/VodWebCrawler_war_exploded/index.html";
             }).catch(function (error) {
               console.log(error);
             });
@@ -93,20 +96,24 @@
       },
       selectRoleChange (val) {//回显关键性代码，每一次选择后执行，val是上面dom的value值
         var obj = {}
-        obj = this.selectType.find(function (item) {//obj是选中的对象
+        obj = this.selectClassify.find(function (item) {//obj是选中的对象
           return item.name === val
         })
-        this.ruleForm.id = obj.id//提交数据使用，此处可忽略
-        this.ruleForm.name = obj.name//用于回显名称
+        this.active=''//弹出类型
+        axios.get('http://localhost:8081/VodWebCrawler_war_exploded/test/findVideoType'+'?id='+obj.id).then(res => {
+          this.selectType= res.data
+        })
+        // this.ruleForm.id = obj.id//提交数据使用，此处可忽略
+        // this.ruleForm.name = obj.name//用于回显名称
       },
-      getselectType () {
+      getselectClassify() {
         axios.get('http://localhost:8081/VodWebCrawler_war_exploded/test/findTypeAll').then(res => {
-          this.selectType = res.data
+          this.selectClassify = res.data
         })
       }
     },
     created: function () {
-      this.getselectType()
+      this.getselectClassify()
     }
 
   })

@@ -2,6 +2,10 @@
 开启router，commit 创建，添加插件vue-cli-plugin-element,
 src文件夹main.js引入element，html引入样式和组件
 
+在根目录下建vue.config.js，cli3.0没有了build和config文件夹
+
+3.0的代理写在vue.config.js下的devServer
+
 created方法，实例化后立马调用，跟之前的init差不多
 methods方法，点击，实例化，提交等方法的共同位置
 
@@ -9,6 +13,28 @@ methods方法，点击，实例化，提交等方法的共同位置
 
 axios请求跨域问题,在没有路由的时候
 get请求数据在后端respond.setheard, post暂时不知道
+
+安装依赖errLog,permission,scrollBehavior,validator,axios,loading,scrollBehavior,js-cookie,Promise-----main.js引用
+:loading="loading" 转圈加载效果
+
+
+项目登录，先进src/main getToken,从ciookie中查看，没有就进入登录
+登录提交admin  方法为loginByEmail，在login.js中定义路径，
+访问后台auth模块AuthController/token,调用admin模块rpc下的userRest/的validate,加密前端的密码比对后端,返回生成的token。
+在user.js中定义了loginByEmail,登录完token存在cookies
+loginByEmail登录完毕push到首页,中间先进main.js判断token,有了再判断列表
+触发user.js中的getInfo,getMenus,获取用户信息和功能列表
+AG-Admin-v2.0中的axios拦截器 名字为fetch.js,
+vue+elementUI做的登录系统除了单点登录代码都一个样,具体可看 https://juejin.im/post/591aa14f570c35006961acac
+
+
+前后端接口文档生成器 swagger
+
+
+
+
+
+目标：加入代码生成器功能，第三方登录，爬虫项目引入
 
 
 $options: 用于当前 Vue 实例的初始化选项, 可以用此选项获得组件的name。

@@ -1,0 +1,32 @@
+public //当前文件
+    static //可以放静态资源不会被打包（我放的是富文本编译器的文件后期会太慢可以换成cdn直接引入到index.html）
+  src //当前项目文件
+    assets //静态资源存放需要被打包
+    components //组件存放处
+        beforeUpload //单个图片上传组件 （基于element）
+        pagination //分页插件 （基于element）
+        reset //重置按钮组件
+        tinyMceEditor //富文本编译器（这个是重点ts支持的vue插件当前对于我们伸手党来说比较少）
+        uploadListImg //批量图片上传（基于element）
+        verification //表单验证
+    utils //当前项目公用方法
+    views //当前项目存放地址
+        aixo //当前项目ajax封装
+        content //当前项目业务逻辑
+        filters //当前项目过滤器
+        haveNot //404页面
+        layout //项目结构布局
+        login //当前项目登陆页面
+        method //当前项目的静态遍历存放
+        store //当前项目vuex存放（不要为了用vuex而用，其实很多项目都不需要用到vuex的）
+        system //权限管理相关
+        typings //ts定义使用
+        utils //存放其他文件（我这边存了cookie的文件）
+    app.vue //全局路由页面
+    main.ts //启始的js
+    permission.ts //路由中转页面
+    route //路由页面
+    shims-tsx.d //支持jsx
+    shims-vue.d //支持vue
+    vue-config //vue配置
+    vue-shim.d.ts //声明全局方法（ts会自动抓取.d.ts文件部分全局方法需要定义才可以使用）
