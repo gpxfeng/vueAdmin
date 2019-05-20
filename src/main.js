@@ -7,13 +7,21 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import errLog from './views/store/errLog'// error log组件
 import { getToken } from './utils/auth'
+import NProgress from 'nprogress' // Progress 进度条
+import 'nprogress/nprogress.css'// Progress 进度条 样式
+import * as filters from './views/filters/index.js' // 全局vue filter
 
 Vue.use(ElementUI)
 
-// register global progress.
+// 注册filter
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+});
+
+// 注册进度 Nprogress
 const whiteList = ['/login', '/authredirect']// 不重定向白名单
 router.beforeEach((to, from, next) => {
-  /* NProgress.start(); // 开启Progress */
+  NProgress.start() // 开启Progress
   if (getToken()) { // 判断是否有token
     if (to.path === '/login') {
       next({ path: '/' })
@@ -49,13 +57,13 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       next('/login') // 否则全部重定向到登录页
-      /* NProgress.done() // 在hash模式下 改变手动改变hash 重定向回来 不会触发afterEach 暂时hack方案 ps：history模式下无问题，可删除该行！ */
+      NProgress.done() // 在hash模式下 改变手动改变hash 重定向回来 不会触发afterEach 暂时hack方案 ps：history模式下无问题，可删除该行！
     }
   }
 })
 
 router.afterEach(() => {
-  /* NProgress.done(); // 结束Progress */
+  NProgress.done() // 结束Progress
 })
 
 Vue.config.productionTip = false

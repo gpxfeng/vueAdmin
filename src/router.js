@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+/* layout布局 */
+import Layout from './views/layout/Layout'
+
 Vue.use(Router)
 
 /**
@@ -21,6 +24,17 @@ export const constantRouterMap = [{
   path: '/401',
   component: () => import('./views/error/401'),
   hidden: true
+},
+{
+  path: '/',
+  component: Layout,
+  redirect: '/dashboard',
+  name: '首页',
+  hidden: true,
+  children: [{
+    path: 'dashboard',
+    component: () => import('./views/dashboard/index')
+  }]
 }
 ]
 

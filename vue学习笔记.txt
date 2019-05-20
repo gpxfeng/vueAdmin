@@ -14,8 +14,16 @@ methods方法，点击，实例化，提交等方法的共同位置
 axios请求跨域问题,在没有路由的时候
 get请求数据在后端respond.setheard, post暂时不知道
 
-安装依赖errLog,permission,scrollBehavior,validator,axios,loading,scrollBehavior,js-cookie,Promise-----main.js引用
+安装依赖errLog(日志),permission(前端权限控制),scrollBehavior(滚动),validator(校检),
+axios(ajax封装),echarts(主题),js-cookie(cookie存储插件),
+Promise(异步对象),NProgress(前端轻量级web进度条)
+screenfull(全屏),vue-count-to(数字滚动查件),,,,
+-----main.js引用
 :loading="loading" 转圈加载效果
+
+layout.vue是左边下拉框
+Navbar.vue是右上方头像
+dashboard/index.vue是首页
 
 
 项目登录，先进src/main getToken,从ciookie中查看，没有就进入登录
@@ -31,7 +39,7 @@ vue+elementUI做的登录系统除了单点登录代码都一个样,具体可看
 前后端接口文档生成器 swagger
 
 
-
+原项目地址 https://github.com/PanJiaChen/vue-element-admin
 
 
 目标：加入代码生成器功能，第三方登录，爬虫项目引入
@@ -51,3 +59,30 @@ $on： 组件监听自定义事件。
 $emit： 组件触发自定义事件。
 
 
+
+不要在 foreach 循环里进行元素的 remove/add 操作
+
+
+remove 元素请使用 Iterator方式，如果并发操作，需要对 Iterator 对象加锁
+Iterator<String> iterator = list.iterator(); <br>while (iterator.hasNext()) {
+String item = iterator.next(); <br>   if (删除元素的条件) {
+       iterator.remove();
+   }
+}
+
+
+
+34 serviceZipkinManager 服务链路监控 31  client  menu 0  /adminSys/monitorManager/serviceZipkinManager   2121
+
+redis清缓存
+2.进入src/redis-cli    cd src/redis-cli
+3.执行：dbsize
+4.执行：flushall
+5.执行：exit
+
+spring cache框架，缓存注解@Cacheable  用在方法上表示：该方法的返回值将被缓存起来
+
+项目中springcloud redis mybaits整合 在ace-auth模块创建RedisConfiguration配置类,在ace-admin模块的biz上添加注解@Cache(key="user{1}")
+基于spring boot上的注解缓存，自带轻量级缓存管理页面。@Cache和@CacheClear比spring cache更轻量的缓存，支持单个缓存设置过期时间，可以根据前缀移除缓存。
+
+配置文件 maxmemory-policy volatile-lru   设置过期时间
