@@ -7,18 +7,6 @@
 			<el-col :span="4" class='text-center'>
 				<router-link class="pan-btn light-blue-btn" to="/charts/index">Charts</router-link>
 			</el-col>
-			<el-col :span="4" class='text-center'>
-				<router-link class="pan-btn pink-btn" to="/excel/download">Excel</router-link>
-			</el-col>
-			<el-col :span="4" class='text-center'>
-				<router-link class="pan-btn green-btn" to="/example/table/table">Table</router-link>
-			</el-col>
-			<el-col :span="4" class='text-center'>
-				<router-link class="pan-btn tiffany-btn" to="/example/form/edit">Form</router-link>
-			</el-col>
-			<el-col :span="4" class='text-center'>
-				<router-link class="pan-btn yellow-btn" to="/theme/index">Theme</router-link>
-			</el-col>
 		</el-row>
 
 		<el-row>

@@ -9,13 +9,7 @@
 </template>
 
 <script>
-  import { default as Navbar } from './Navbar';
-
-  import { default as Sidebar } from './Sidebar';
-
-  import { default as Levelbar } from './Levelbar';
-
-  import { default as AppMain } from './AppMain';
+  import { Navbar, Sidebar, AppMain } from './index.js';
 
   export default {
     name: 'layout',

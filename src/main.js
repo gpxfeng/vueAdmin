@@ -6,17 +6,28 @@ import './plugins/element.js'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import errLog from './views/store/errLog'// error log组件
-import { getToken } from './utils/auth'
+import IconSvg from './components/Icon-svg'// svg 组件
+import vueWaves from './components/directive/waves'// 水波纹指令
+import Sticky from './components/Sticky' // 粘性header组件
+import './assets/iconfont/iconfont' // iconfont 具体图标见https://github.com/PanJiaChen/vue-element-admin/wiki
+import Multiselect from 'vue-multiselect'// 使用的一个多选框组件，element-ui的select不能满足所有需求
+import 'vue-multiselect/dist/vue-multiselect.min.css'// 多选框组件css
 import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css'// Progress 进度条 样式
+import { getToken } from './utils/auth'
 import * as filters from './views/filters/index.js' // 全局vue filter
 
+// register globally
+Vue.component('multiselect', Multiselect)
+Vue.component('icon-svg', IconSvg)
+Vue.component('Sticky', Sticky)
 Vue.use(ElementUI)
+Vue.use(vueWaves)
 
 // 注册filter
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
-});
+})
 
 // 注册进度 Nprogress
 const whiteList = ['/login', '/authredirect']// 不重定向白名单

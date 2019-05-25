@@ -17,7 +17,11 @@ get请求数据在后端respond.setheard, post暂时不知道
 安装依赖errLog(日志),permission(前端权限控制),scrollBehavior(滚动),validator(校检),
 axios(ajax封装),echarts(主题),js-cookie(cookie存储插件),
 Promise(异步对象),NProgress(前端轻量级web进度条)
-screenfull(全屏),vue-count-to(数字滚动查件),,,,
+screenfull(全屏),vue-count-to(数字滚动查件),vue-Sticky(布局),
+vue-multiselect(下拉框插件)
+不是主要的↓
+,normalize.css(样式),vuedraggable(拖拽依赖),dropzone(文件上传插件),codemirror(在线代码编辑器)
+,simplemde(富文本编辑器)
 -----main.js引用
 :loading="loading" 转圈加载效果
 
@@ -86,3 +90,17 @@ spring cache框架，缓存注解@Cacheable  用在方法上表示：该方法�
 基于spring boot上的注解缓存，自带轻量级缓存管理页面。@Cache和@CacheClear比spring cache更轻量的缓存，支持单个缓存设置过期时间，可以根据前缀移除缓存。
 
 配置文件 maxmemory-policy volatile-lru   设置过期时间
+
+component: () => import 导致栈溢出
+RangeError: Maximum call stack size exceeded
+
+
+
+
+
+
+
+
+
+
+

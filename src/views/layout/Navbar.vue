@@ -8,7 +8,7 @@
   <error-log v-if="log.length>0" class="errLog-container" :logsList="log"></error-log>
   <screenfull class='screenfull'></screenfull>
   <el-dropdown class="avatar-container" trigger="click">
-    <div class="avatar-wrapper"> <img class="user-avatar" src="https://filmesonlinehd1.net/wp-content/uploads/2018/07/9sIHDlr8tFcx2oy6tvCLtxtdPeQ-1-185x278.jpg"> <i class="el-icon-caret-bottom"></i> </div>
+    <div class="avatar-wrapper"> <img class="user-avatar" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3163382449,2006734773&fm=26&gp=0.jpg"> <i class="el-icon-caret-bottom"></i> </div>
     <el-dropdown-menu class="user-dropdown" slot="dropdown">
       <router-link class='inlineBlock' to="/">
         <el-dropdown-item> 首页 </el-dropdown-item>

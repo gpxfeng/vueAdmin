@@ -6,7 +6,7 @@ import {
 import store from '../../store'
 import {
   getToken
-} from '../../utils/auth'
+} from '../auth'
 
 // 创建axios实例 axios拦截器  通过request拦截器在每个请求头里面塞入token，好让后端对请求进行权限验证。并创建一个respone拦截器，当服务端返回特殊的状态码，我们统一做处理，如没权限或者token失效等操作
 const service = axios.create({

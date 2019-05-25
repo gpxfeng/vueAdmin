@@ -1,4 +1,4 @@
-import fetch from '../views/aixo/axios'
+import fetch from '../utils/axios/axios'
 
 export function loginByEmail (username, password) {
   const data = {
