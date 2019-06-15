@@ -41,6 +41,7 @@
 ```
 
 ## 目录结构
+```
 ├── dist                       # 构建相关
 ├── public                     # 静态资源
 │   │── favicon.ico            # favicon图标
@@ -77,7 +78,7 @@
 ├── babel.config.js            # babel 配置
 ├── vue.config.js              # vue-cli 配置
 └── package.json               # package.json
-
+```
 
 ## vue项目构建
 新建vue 项目 cmd  命令vue ui  创建 手动选择中勾选Router，Vuex
