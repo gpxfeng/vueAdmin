@@ -44,6 +44,7 @@ export const constantRouterMap = [{
 
 export default new Router({
   // mode: 'history', // 后端支持可开
+  scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
 
@@ -56,14 +57,14 @@ export const asyncRouterMap = [
     children: [{
       path: 'userManager',
       icon: 'fa-user',
-      // component: () => import('./views/admin/user/index'),
-      name: '用户管理',
+      component: () => import('./views/admin/user/index'),
+      name: 'user',
       authority: 'userManager'
     }, {
       path: 'menuManager',
       icon: 'category',
-      // component: () => import('./views/admin/menu/index'),
-      name: '菜单管理',
+      component: () => import('./views/admin/menu/index'),
+      name: 'menu',
       authority: 'menuManager'
     }, {
       path: 'gateLogManager',
@@ -81,7 +82,7 @@ export const asyncRouterMap = [
     authority: 'authManager',
     children: [{
       path: 'serviceManager',
-      // components: () => import('./views/auth/service/index'),
+      components: () => import('./views/auth/service/index'),
       name: '服务管理',
       authority: 'serviceManager'
     }]
@@ -118,13 +119,13 @@ export const asyncRouterMap = [
     children: [{
       path: 'groupTypeManager',
       icon: 'fa-users',
-      // component: () => import('./views/purview/groupType/index'),
+      component: () => import('./views/purview/groupType/index'),
       name: 'groupType',
       authority: 'groupTypeManager'
     }, {
       path: 'groupManager',
       icon: 'group_fill',
-      // component: () => import('./views/purview/group/index'),
+      component: () => import('./views/purview/group/index'),
       name: 'group',
       authority: 'groupManager'
     }]
