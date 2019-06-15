@@ -116,9 +116,7 @@ RangeError: Maximum call stack size exceeded
 - 有可能问题解决的地址:https://github.com/vuejs/vue-cli/issues/2463
 目前注释了vue.config.js下面的 pages 选项
 
-
 - exlint规则:package.json文件下eslintConfig选项，rules配置规则
-
 
 ## 相关vue学习
 - created方法，实例化后立马调用，跟之前的init差不多
